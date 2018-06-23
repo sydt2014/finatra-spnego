@@ -1,0 +1,21 @@
+apply plugin: 'scala'
+apply plugin: 'java'
+apply plugin: 'application'
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = "com.example.App.SpnegoServerMain"
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.8'
+    compile 'com.twitter:finatra-http_2.11:17.12.0'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+
+    testCompile 'org.scalatest:scalatest_2.11:3.0.0'
+    testCompile 'junit:junit:4.12'
+}
