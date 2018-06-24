@@ -78,6 +78,8 @@ Then try to see web page protected by Kerberos authentication and provided by yo
 *SPNEGO in Java:*
 
 * [Oracle - Secure Authentication Using SPNEGO Java GSS Mechanism](https://docs.oracle.com/javase/10/security/part-v-secure-authentication-using-spnego-java-gss-mechanism.htm#JSSEC-GUID-B51B4169-BD5D-4A19-BC2B-7F6B3ABB9B7A)
+* [SourceForge - JaasLounge](http://jaaslounge.sourceforge.net)
+* [SourceForge - Spnego](http://spnego.sourceforge.net)
 
 *SPNEGO protocol:*
 
