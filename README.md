@@ -27,8 +27,6 @@ You should have:
 
 # Installation
 
-*Build and run project:*
-
 Build project:
 
 ~~~
@@ -50,9 +48,7 @@ project.
 
 # Usage
 
-*Test client:* 
-
-Either by configuring your web browser (see below) or with curl command by running:
+Test client either by configuring your web browser (see below) or with curl command by running:
 
 ~~~
 $ ./script/client.sh
