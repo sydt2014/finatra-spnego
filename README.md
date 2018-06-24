@@ -1,12 +1,15 @@
 # SPNEGO Server Finatra
 
-HTTP/SPNEGO with Kerberos authentication for Finatra web server.
+Thanks to HTTP/SPNEGO filter, endpoints served by Finatra web server can be accessible 
+only by authenticated users on Kerberos Single Sign-On (SSO). So, your API endpoints are
+protected.
 
 <p align="center">
   <img alt="finatra_kerberos.png" src="./media/finatra_kerberos.png" width=200/><br>
   <i>SPNEGO Server Finatra</i>
 </p>
 
+See: [MIT Kerberos](https://web.mit.edu/kerberos/) and [Finatra](https://twitter.github.io/finatra/). 
 
 # Prerequisites
 
