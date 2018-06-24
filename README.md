@@ -48,6 +48,8 @@ Finatra web server is now running on `http://0.0.0.0:8000`.
 Or you can run `./script/build-container` to run project in docker container with https://github.com/criteo/kerberos-docker
 project.
 
+# Usage
+
 *Test client:* 
 
 Either by configuring your web browser (see below) or with curl command by running:
@@ -66,32 +68,6 @@ put in `network.negotiate-auth.trusted-uris` value `127.0.0.1:8000` (or more gen
 *See network exchanges*:
 
 You can run `wireshark` with `kerberos` filter. 
-
-# Usage
-
-Do Kerberos authentication to get Ticket-Granting (TGT) Ticket kerberos client `kinit` with principal `bob@EXAMPLE.COM`
-by example:
-
-~~~
-$ kinit -V bob@EXAMPLE.COM 
-Using default cache: /tmp/krb5cc_1000
-Using principal: bob@EXAMPLE.COM
-Password for bob@EXAMPLE.COM: <type bob@EXAMPLE.COM password (by default bob)>
-Authenticated to Kerberos v5
-~~~
-
-List your credentials:
-
-~~~
-$ klist
-Ticket cache: FILE:/tmp/krb5cc_1000
-Default principal: bob@EXAMPLE.COM
-
-Valid starting       Expires              Service principal
-24/06/2018 21:16:13  25/06/2018 07:16:13  krbtgt/EXAMPLE.COM@EXAMPLE.COM
-	renew until 25/06/2018 21:16:11, Flags: FPRIA
-	Etype (skey, tkt): des3-cbc-sha1, des3-cbc-sha1 
-~~~
 
 Then try to see web page protected by Kerberos authentication and provided by your web server.
 
