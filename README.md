@@ -8,7 +8,7 @@ HTTP/SPNEGO with Kerberos authentication for Finatra web server.
 </p>
 
 
-**Prerequisites**
+# Prerequisites
 
 You should have:
 
@@ -22,7 +22,7 @@ You should have:
 >
 > https://github.com/criteo/kerberos-docker
 
-**Installation**
+# Installation
 
 Build project:
 
@@ -47,7 +47,7 @@ Ctrl+C to stop web server.
 Go to `about:config`, click on `I accept the risk` button, filter in search bar by `negotiate` and 
 put in `network.negotiate-auth.trusted-uris` value `127.0.0.1:8000` (or more generally address of your web server).
 
-**Usage**
+# Usage
 
 Do Kerberos authentication to get Ticket-Granting (TGT) Ticket kerberos client `kinit` with principal `bob@EXAMPLE.COM`
 by example:
