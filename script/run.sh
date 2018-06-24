@@ -14,8 +14,8 @@ jar_name=$(basename "${jar_file_location}")
 
 cd "${jar_dir}"
 
-unzip "${jar_name}" jaas-krb5.conf
-unzip "${jar_name}" krb5.conf
+jar -xf "${jar_name}" jaas-krb5.conf
+jar -xf "${jar_name}" krb5.conf
 
 if [[ "${debug}" == "true" ]]; then
   export KRB5_TRACE=/dev/stderr

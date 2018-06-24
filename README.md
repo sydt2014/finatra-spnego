@@ -27,6 +27,8 @@ You should have:
 
 # Installation
 
+*Build and run project:*
+
 Build project:
 
 ~~~
@@ -39,9 +41,20 @@ Run project:
 make run ARGS="../build/libs/spnego-server-1.0-SNAPSHOT-all.jar"
 ~~~
 
-Finatra web server is now running on http://0.0.0.0:8000.
+Finatra web server is now running on `http://0.0.0.0:8000`.
 
-Ctrl+C to stop web server.
+`Ctrl+C` to stop web server.
+
+Or you can run `./script/build-container` to run project in docker container with https://github.com/criteo/kerberos-docker
+project.
+
+*Test client:* 
+
+Either by configuring your web browser (see below) or with curl command by running:
+
+~~~
+$ ./script/client.sh
+~~~
 
 *Configure your favorite web browser*:
 
@@ -49,6 +62,10 @@ Ctrl+C to stop web server.
 
 Go to `about:config`, click on `I accept the risk` button, filter in search bar by `negotiate` and 
 put in `network.negotiate-auth.trusted-uris` value `127.0.0.1:8000` (or more generally address of your web server).
+
+*See network exchanges*:
+
+You can run `wireshark` with `kerberos` filter. 
 
 # Usage
 
