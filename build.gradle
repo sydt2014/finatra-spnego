@@ -1,15 +1,25 @@
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
+    }
+}
+
 apply plugin: 'scala'
 apply plugin: 'java'
 apply plugin: 'application'
-
-group 'com.example'
-version '1.0-SNAPSHOT'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 repositories {
     mavenCentral()
 }
 
-mainClassName = "com.example.App.SpnegoServerMain"
+mainClassName = "com.example.SpnegoServerMain"
 
 dependencies {
     compile 'org.scala-lang:scala-library:2.11.8'
@@ -18,4 +28,14 @@ dependencies {
 
     testCompile 'org.scalatest:scalatest_2.11:3.0.0'
     testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Title': project.name,
+                'Implementation-Version': project.version,
+                'Main-Class': mainClassName
+        )
+    }
 }
