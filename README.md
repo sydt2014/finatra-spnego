@@ -2,7 +2,42 @@
 
 HTTP/SPNEGO with Kerberos authentication for Finatra web server.
 
+<p align="center">
+  <img alt="finatra_kerberos.png" src="./media/finatra_kerberos.png" width=200/>
+</p>
+
+
+**Prerequisites**
+
+You should have:
+
+* MIT kerberos client 1.15+
+* Java 1.8+
+* Scala 2.11.6+
+* Gradle 3+
+* GNU Make 4+
+
+> This project can work only with running KDC server, for that you can use:
+>
+> https://github.com/criteo/kerberos-docker
+
 **Installation**
+
+Build project:
+
+~~~
+make build
+~~~
+
+Run project:
+
+~~~
+make run ARGS="build/libs/spnego-server-1.0-SNAPSHOT-all.jar"
+~~~
+
+Finatra web server is now running on http://0.0.0.0:8000.
+
+Ctrl+C to stop web server.
 
 *Configure your favorite web browser*:
 
