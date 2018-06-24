@@ -36,7 +36,7 @@ make build
 Run project:
 
 ~~~
-make run ARGS="build/libs/spnego-server-1.0-SNAPSHOT-all.jar"
+make run ARGS="../build/libs/spnego-server-1.0-SNAPSHOT-all.jar"
 ~~~
 
 Finatra web server is now running on http://0.0.0.0:8000.
