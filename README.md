@@ -3,7 +3,8 @@
 HTTP/SPNEGO with Kerberos authentication for Finatra web server.
 
 <p align="center">
-  <img alt="finatra_kerberos.png" src="./media/finatra_kerberos.png" width=200/>
+  <img alt="finatra_kerberos.png" src="./media/finatra_kerberos.png" width=200/><br>
+  <i>SPNEGO Server Finatra</i>
 </p>
 
 
