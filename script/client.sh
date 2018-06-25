@@ -5,7 +5,7 @@
 # <ip> <TAB> spnego-server.example.com spnego-server
 
 ip=${1:-127.0.0.1:8000}
-upn=${2:-bob@EXAMPLE}
+upn=${2:-bob@EXAMPLE.COM}
 
 echo "=== Credentials ${upn} before HTTP connection ==="
 kinit -V "${upn}"
