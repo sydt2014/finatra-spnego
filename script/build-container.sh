@@ -7,7 +7,7 @@ cd $(dirname "$0")/..
 kdc_container_name="krb5-kdc-server-example-com"
 container_name="spnego-server"
 service_name="${container_name}"
-principal_server="HTTP/spnego-server@EXAMPLE.COM"
+principal_server="HTTP/spnego-server.example.com@EXAMPLE.COM"
 
 # Delete container if already exists
 container_id=$(docker ps -a -q -f name="${container_name}")
@@ -35,8 +35,6 @@ EOC
 # Build project
 make build
 
-pwd
-
 # Deploy project on container
 docker cp "./script/run.sh" "${container_name}:/root/run.sh"
 docker cp "./build/libs/spnego-server-1.0-SNAPSHOT-all.jar" "${container_name}:/root/spnego-server.jar"
@@ -47,8 +45,10 @@ docker cp "/tmp/${service_name}.keytab" "${container_name}:/tmp/${service_name}.
 
 # Right permission for keytab
 docker exec "${container_name}" /bin/bash -c "
+apt-get update
+apt-get -y install krb5-user
 chmod 400 /tmp/spnego-server.keytab
-klist -kt /tmp/spnego-server.keytab
+klist -kte /tmp/spnego-server.keytab
 ls -l /tmp/spnego-server.keytab
 "
 
@@ -60,5 +60,5 @@ docker exec -d "${container_name}" /bin/bash -c "
 # Connect to container
 docker exec -it "${container_name}" bash
 # To see server log do:
-# tail -f spnego-sever.log
+# tail -f spnego-server.log
 # Crtl+D to go out docker container
