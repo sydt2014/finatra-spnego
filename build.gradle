@@ -3,7 +3,12 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
+        mavenLocal()
+        mavenCentral()
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
@@ -16,7 +21,9 @@ apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    jcenter()
 }
 
 mainClassName = "com.example.SpnegoServerMain"
@@ -30,6 +37,26 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+task npmInstall(type: Exec) {
+    workingDir 'src/main/webapp'
+    commandLine 'npm', 'install'
+}
+
+task ngBuild(type: Exec) {
+    dependsOn npmInstall
+
+    workingDir 'src/main/webapp'
+    commandLine 'ng', 'build'
+}
+
+processResources {
+    dependsOn ngBuild
+
+    from("src/main/webapp/dist/") {
+        into 'public'
+    }
+}
+
 jar {
     manifest {
         attributes(
@@ -38,4 +65,19 @@ jar {
                 'Main-Class': mainClassName
         )
     }
+}
+
+task cleanWebappDist(type: Exec) {
+    workingDir 'src/main/webapp'
+    commandLine 'rm', '-rf', 'dist/'
+}
+
+task cleanWebappNpmModule(type: Exec) {
+    workingDir 'src/main/webapp'
+    commandLine 'rm', '-rf', 'node_modules/'
+}
+
+clean {
+    dependsOn cleanWebappDist
+    dependsOn cleanWebappNpmModule
 }

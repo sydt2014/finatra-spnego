@@ -20,6 +20,9 @@ You should have:
 * Scala 2.11.6+
 * Gradle 3+
 * GNU Make 4+
+* Angular CLI: 6+
+* Node: 10.5+
+
 
 > This project can work only with running KDC server, for that you can use:
 >

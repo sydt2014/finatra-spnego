@@ -57,6 +57,18 @@ docker exec -d "${container_name}" /bin/bash -c "
 ./run.sh spnego-server.jar > spnego-server.log
 "
 
+container_ip=$(docker exec "${container_name}" /bin/bash -c 'hostname -I | cut -f1 -d" "')
+
+read -p "Do you want update /etc/hosts/ for this container ip '${container_ip}'? [Y/n]: " answer
+if [[ "${answer}" == "Y" ]]; then
+  entry=$(grep -E "^${container_ip}" /etc/hosts)
+  if [[ -n "${entry}" ]]; then
+    >&2 echo "ERROR: '${entry}' already exists for this container ip '${container_ip}'!"
+    exit 1
+  fi
+  sudo echo "${container_ip}\t${container_name}.example.com ${container_name}" >> /etc/hosts
+fi
+
 # Connect to container
 docker exec -it "${container_name}" bash
 # To see server log do:
