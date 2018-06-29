@@ -4,7 +4,9 @@
 #
 # <ip> <TAB> spnego-server.example.com spnego-server
 
-ip=${1:-127.0.0.1:8000}
+cd $(dirname "$0")
+
+url_target=${1:-http://127.0.0.1:8000/}
 upn=${2:-bob@EXAMPLE.COM}
 
 echo "=== Credentials ${upn} before HTTP connection ==="
@@ -13,7 +15,7 @@ klist -fe
 echo
 
 echo "=== HTTP connection ${ip} ==="
-curl --negotiate -u : -b ~/cookie.txt -c ~/cookie.txt http://${ip}/
+curl --negotiate -u : -b cookie.txt -c cookie.txt "${url_target}"
 echo
 
 echo "=== Credentials ${upn} after HTTP connection ==="
