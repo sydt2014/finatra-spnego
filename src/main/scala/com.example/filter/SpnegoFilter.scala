@@ -1,4 +1,4 @@
-package com.example
+package com.example.filter
 
 import com.twitter.finagle.http.SpnegoAuthenticator.Credentials.ServerSource
 import com.twitter.finagle.http.SpnegoAuthenticator.{Authenticated, Credentials, ServerFilter}

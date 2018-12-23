@@ -1,5 +1,6 @@
-package com.example
+package com.example.controller
 
+import com.example.filter.SpnegoFilter
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
 

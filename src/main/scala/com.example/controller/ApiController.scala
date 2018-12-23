@@ -1,19 +1,16 @@
-package com.example
+package com.example.controller
 
+import com.example.filter.SpnegoFilter
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
 
 class ApiController extends Controller {
 
-  prefix("/api") {
+  filter(new SpnegoFilter()).prefix("/api") {
 
-    filter(new SpnegoFilter()).get("/hello/?") { request: Request =>
+    get("/auth/?") { request: Request =>
       val clientPrincipal: String = request.headerMap.get("X-client-principal").getOrElse("undefined")
       s"Hello $clientPrincipal!"
-    }
-
-    get("/check/?") { request: Request =>
-      "Alive"
     }
 
   }
