@@ -1,5 +1,7 @@
 # HTTP/SPNego based on Kerberos for Finatra web server
 
+[![Build Status](https://travis-ci.org/glegoux/spnego-finatra.svg?branch=master)](https://travis-ci.org/glegoux/spnego-finatra)
+
 Thanks to HTTP/SPNego filter, endpoints served by Finatra web server can be accessible 
 only by authenticated users on Kerberos Single Sign-On (SSO). So, your API endpoints are
 protected.
@@ -15,13 +17,15 @@ See: [MIT Kerberos](https://web.mit.edu/kerberos/) and [Finatra](https://twitter
 
 You should have:
 
-* MIT kerberos client 1.15+
-* Java 1.8+
-* Scala 2.11.6+
-* Gradle 3+
-* GNU Make 4+
+* MIT kerberos client/server 1.15+
+* Java 1.8+ (Oracle)
+* Scala 2.11+
+* Gradle 4.0+
+* Bash 4.4+
+* GNU Make 4.1+
+* Node: 8.11+
+* NPM: 5.6+
 * Angular CLI: 6+
-* Node: 10.5+
 
 
 > This project can work only with running KDC server, for that you can use:
