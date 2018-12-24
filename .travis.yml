@@ -24,6 +24,7 @@ branches:
 install:
   - gradle wrapper
   - nvm install
+  - npm install @angular/cli@6.0.0
 
 after_success:
   - ./gradlew test jacocoTestReport
