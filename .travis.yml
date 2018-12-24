@@ -27,8 +27,8 @@ before_script:
   - npm install @angular/cli@6.0.0
   - ./script/test_ng.sh
 
-script:
-  - ./gradlew check --full-stacktrace
+#script:
+#  - ./gradlew check --full-stacktrace
 
-after_success:
-  - ./gradlew test jacocoTestReport
+#after_success:
+#  - ./gradlew test jacocoTestReport
