@@ -3,15 +3,18 @@
 # Test configuration:
 # - cli          : travis lint ./.travis.yml
 
+branches:
+  only:
+    - master
+
 dist: trusty
+sudo: required
 
 git:
   depth: 3
   quiet: true
 
-branches:
-  only:
-    - master
+install: true
 
 language: scala
 
