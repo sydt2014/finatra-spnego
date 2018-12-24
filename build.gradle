@@ -1,6 +1,25 @@
 group 'com.glegoux.spnego'
 version '1.0-SNAPSHOT'
 
+// plugin version
+final pluginShadowJarVersion = '2.0.4'
+final pluginJacocoVersion = '0.8.2'
+
+// language version
+final scalaVersion = '2.11'
+final scalaMicroVersion = '12'
+
+// gradle version
+final gradleVersion = '4.0'
+
+// java and scala librairies version
+final finatraVersion = '17.12.0'
+final logbackVersion = '1.1.7'
+final mockitoCoreVersion = '1.10.19'
+final guiceTestlibVersion = '4.2.2'
+final junitVersion = '4.12'
+final scalaTestVersion = '3.0.5'
+
 buildscript {
   repositories {
     mavenLocal()
@@ -11,7 +30,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
+    classpath "com.github.jengelman.gradle.plugins:shadow:2.0.4"
   }
 }
 
@@ -20,6 +39,8 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.johnrengelman.shadow'
+
+mainClassName = 'com.glegoux.spnego.SpnegoServerMain'
 
 jacoco {
   toolVersion = '0.8.2'
@@ -40,17 +61,6 @@ repositories {
   jcenter()
 }
 
-mainClassName = 'com.glegoux.spnego.SpnegoServerMain'
-
-final scalaVersion = '2.11'
-final scalaMicroVersion = '12'
-
-final finatraVersion = '17.12.0'
-final logbackVersion = '1.1.7'
-final mockitoCoreVersion = '1.10.19'
-final guiceTestlibVersion = '4.2.2'
-final junitVersion = '4.12'
-final scalaTestVersion = '3.0.5'
 
 dependencies {
   compile "org.scala-lang:scala-library:$scalaVersion.$scalaMicroVersion"
@@ -71,7 +81,7 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '4.0' // version required
+  gradleVersion = 4.0 // version required
 }
 
 task npmInstall(type: Exec) {
@@ -82,7 +92,7 @@ task npmInstall(type: Exec) {
 task ngBuild(type: Exec) {
   dependsOn npmInstall
 
-  commandLine 'pwd'
+  workingDir 'src/main/webapp/'
   commandLine 'ng', 'build'
 }
 
