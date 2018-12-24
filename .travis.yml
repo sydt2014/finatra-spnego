@@ -4,24 +4,25 @@
 # - cli          : travis lint ./.travis.yml
 
 dist: trusty
-sudo: required
 
 git:
   depth: 3
   quiet: true
 
+
+branches:
+  only:
+    - master
+
 language: scala
+
 scala:
   - 2.11.12
 
 jdk:
   - oraclejdk8
 
-branches:
-  only:
-    - master
-
-install:
+before_script:
   - gradle wrapper
   - nvm install
   - npm install @angular/cli@6.0.0
