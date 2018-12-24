@@ -9,7 +9,6 @@ git:
   depth: 3
   quiet: true
 
-
 branches:
   only:
     - master
@@ -26,6 +25,7 @@ before_script:
   - gradle wrapper
   - nvm install
   - npm install @angular/cli@6.0.0
+  - ./script/test_ng.sh
 
 script:
   - ./gradlew check --full-stacktrace
