@@ -82,7 +82,7 @@ task npmInstall(type: Exec) {
 task ngBuild(type: Exec) {
   dependsOn npmInstall
 
-  workingDir 'src/main/webapp/'
+  commandLine 'pwd'
   commandLine 'ng', 'build'
 }
 
