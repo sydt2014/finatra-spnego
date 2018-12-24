@@ -93,7 +93,7 @@ task ngBuild(type: Exec) {
   dependsOn npmInstall
 
   workingDir 'src/main/webapp/'
-  commandLine 'ng', 'build'
+  commandLine 'npx', 'ng', 'build'
 }
 
 processResources {

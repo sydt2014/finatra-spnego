@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-cd ../src/main/webapp
+cd src/main/webapp
 ng build
 cd -
