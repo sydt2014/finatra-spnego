@@ -24,6 +24,9 @@ scala:
 jdk:
   - oraclejdk8
 
+node_js:
+  - node
+
 script:
   - gradle wrapper
   - nvm install
