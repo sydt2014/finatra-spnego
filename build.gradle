@@ -1,18 +1,18 @@
 group 'com.glegoux.spnego'
 version '1.0-SNAPSHOT'
 
-// plugin version
+// plugin versions
 final pluginShadowJarVersion = '2.0.4'
 final pluginJacocoVersion = '0.8.2'
 
-// language version
+// language versions
 final scalaVersion = '2.11'
 final scalaMicroVersion = '12'
 
-// gradle version
+// gradle versions
 final gradleVersion = '4.0'
 
-// java and scala librairies version
+// java and scala librairies versions
 final finatraVersion = '17.12.0'
 final logbackVersion = '1.1.7'
 final mockitoCoreVersion = '1.10.19'
