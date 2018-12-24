@@ -1,0 +1,26 @@
+# .travis.yml for travis-ci.org
+#
+# Test configuration:
+# - cli          : travis lint ./.travis.yml
+# - web interface: https://lint.travis-ci.org/glegoux/mdf
+
+dist: trusty
+sudo: required
+
+git:
+  depth: 3
+  quiet: true
+
+language: scala
+scala:
+  - 2.11.12
+
+jdk:
+  - oraclejdk8
+
+branches:
+  only:
+    - master
+
+after_success:
+  - ./gradlew test jacocoTestReport
