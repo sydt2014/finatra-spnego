@@ -3,7 +3,7 @@
 # Test configuration:
 # - cli          : travis lint ./.travis.yml
 
-dist: xenial
+dist: trusty
 sudo: required
 
 git:
