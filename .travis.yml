@@ -26,5 +26,8 @@ install:
   - nvm install
   - npm install @angular/cli@6.0.0
 
+script:
+  - ./gradlew check --full-stacktrace
+
 after_success:
   - ./gradlew test jacocoTestReport
