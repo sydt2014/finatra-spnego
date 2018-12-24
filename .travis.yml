@@ -21,7 +21,7 @@ scala:
 jdk:
   - oraclejdk8
 
-before_script:
+script:
   - gradle wrapper
   - nvm install
   - npm install @angular/cli@6.0.0
