@@ -1,8 +1,8 @@
 {
-  "name": "angular-io-example",
+  "name": "spnego-finatra-frontend",
   "version": "1.0.0",
   "private": true,
-  "description": "Example project from an angular.io guide.",
+  "description": "Front end side of SPNego Finatra web server",
   "scripts": {
     "ng": "ng",
     "build": "ng build --prod",
