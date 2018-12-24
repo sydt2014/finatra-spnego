@@ -1,4 +1,4 @@
-package com.example.controller
+package com.glegoux.spnego.controller
 
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller

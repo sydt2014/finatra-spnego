@@ -1,6 +1,6 @@
-package com.example
+package com.glegoux.spnego
 
-import com.example.controller.{ApiController, AssetController, ConfigController, HealthCheckController}
+import com.glegoux.spnego.controller.{ApiController, AssetController, ConfigController, HealthCheckController}
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.filters.{CommonFilters, LoggingMDCFilter, TraceIdMDCFilter}

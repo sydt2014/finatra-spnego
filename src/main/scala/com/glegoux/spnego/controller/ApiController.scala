@@ -1,6 +1,6 @@
-package com.example.controller
+package com.glegoux.spnego.controller
 
-import com.example.filter.SpnegoFilter
+import com.glegoux.spnego.filter.SpnegoFilter
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
 
