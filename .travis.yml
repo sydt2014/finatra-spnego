@@ -31,8 +31,5 @@ before_script:
   - gradle wrapper
   - nvm install
 
-script:
-  - ./gradlew check --full-stacktrace
-
-#after_success:
-#  - ./gradlew test jacocoTestReport
+after_success:
+  - ./gradlew test jacocoTestReport
