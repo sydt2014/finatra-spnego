@@ -21,5 +21,8 @@ branches:
   only:
     - master
 
+install:
+  - gradle wrapper
+
 after_success:
   - ./gradlew test jacocoTestReport
