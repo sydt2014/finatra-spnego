@@ -5,6 +5,11 @@
 # (else windows rewrites eof with CRLF)
 * text eol=lf
 
+# windows scripts (DOS and PowerShell)
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
 # These files are binary and should be left untouched
 # (binary is a macro for -text -diff)
 *.woff binary
