@@ -11,7 +11,7 @@ import org.ietf.jgss.GSSName
 class SpnegoFilter extends SimpleFilter[Request, Response] {
   private val log = Logger("SpnegoFilter")
 
-  val serverSource: ServerSource = new Credentials.JAASServerSource("server")
+  val serverSource: ServerSource = new Credentials.JAASServerSource("service")
 
   override def apply(request: Request, service: Service[Request, Response]): Future[Response] = {
     val authService = new Service[Authenticated[Request], Response] {

@@ -8,11 +8,11 @@ class ConfigController extends Controller {
   prefix("/config") {
 
     get("/jaas-krb5.conf") { _: Request =>
-      response.ok.file("/jaas-krb5.conf")
+      response.ok.file("/kerberos/service/jaas-krb5.conf")
     }
 
     get("/krb5.conf") { _: Request =>
-      response.ok.file("/krb5.conf")
+      response.ok.file("/kerberos/service/krb5.conf")
     }
 
   }

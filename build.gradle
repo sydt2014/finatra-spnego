@@ -19,6 +19,8 @@ final mockitoCoreVersion = '1.10.19'
 final guiceTestlibVersion = '4.2.2'
 final junitVersion = '4.12'
 final scalaTestVersion = '3.0.5'
+final apacheKerbyVersion = '1.1.1'
+final commonsCLiVersion = '1.4'
 
 buildscript {
   repositories {
@@ -67,6 +69,9 @@ dependencies {
   compile "com.twitter:finatra-http_$scalaVersion:$finatraVersion"
   compile "ch.qos.logback:logback-classic:$logbackVersion"
   compile "com.google.inject.extensions:guice-testlib:$guiceTestlibVersion"
+  compile "org.apache.kerby:kerby-kdc:${apacheKerbyVersion}"
+  compile "org.apache.kerby:json-backend:${apacheKerbyVersion}"
+  compile "commons-cli:commons-cli:${commonsCLiVersion}"
 
   testCompile "junit:junit:$junitVersion"
   testCompile "org.mockito:mockito-core:$mockitoCoreVersion"
