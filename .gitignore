@@ -8,3 +8,7 @@ out/
 gradle/
 gradlew
 gradlew.bat
+
+# Angular
+src/main/webapp/node_modules
+src/main/webapp/dist
