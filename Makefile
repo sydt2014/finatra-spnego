@@ -8,17 +8,21 @@ SCRIPT = ./script
 usage:
 	@echo "targets include: usage build run clean all"
 
+.PHONY: wrapper
+wrapper:
+	@gradle wrapper --gradle-version $(shell cat .gradle-version)
+
 .PHONY: build
-build:
-	@gradle build
+build: wrapper
+	@./gradlew build
 
 .PHONY: run
 run:
 	@$(SCRIPT)/run.sh ${ARGS}
 
 .PHONY: clean
-clean:
-	@gradle clean
+clean: wrapper
+	@./gradlew clean
 
 .PHONY: all
-all: build run
+all: clean build run
