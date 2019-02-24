@@ -1,4 +1,4 @@
-package com.glegoux.spnego.kdc;
+package com.glegoux.kdc;
 
 import java.io.*;
 import java.net.URL;
@@ -117,7 +117,7 @@ public class KerberosServer extends KdcServer {
         options.addOption("r", "realm", true, "KDC Server realm (by default EXAMPLE.COM)");
         options.addOption("host", "hostname", true, "KDC Server hostname (by default localhost)");
         options.addOption("p", "port", true, "KDC Server port (by default 1088)");
-        options.addOption("jsonBackend", false, "Use json backend (by default in memory)");
+        options.addOption("backend", true, "Use memory or json backend (by default memory backend)");
         options.addOption("debug", false, "Enable debug (by default disable)");
 
         CommandLineParser parser = new DefaultParser();
@@ -137,12 +137,20 @@ public class KerberosServer extends KdcServer {
         ClassLoader classLoader = KerberosServer.class.getClassLoader();
         File kdcConfigFile = new File(classLoader.getResource("kerberos/kdc/kdc.conf").getFile());
         KdcConfig kdcConfig = getKdcConfig(kdcConfigFile);
-        BackendConfig backendConfig;
-        if (commandLine.hasOption("jsonBackend")) {
-            File backendConfigFile = new File(classLoader.getResource("kerberos/kdc/json-backend.conf").getFile());
-            backendConfig = getBackendConfig(backendConfigFile);
-        } else {
-            backendConfig = new BackendConfig();
+        BackendConfig backendConfig = null;
+        String typeBackend = commandLine.getOptionValue("host", "memory");
+        switch (typeBackend) {
+            case "memory":
+                backendConfig = new BackendConfig();
+                break;
+            case "json":
+                File backendConfigFile = new File(classLoader.getResource("kerberos/kdc/json-backend.conf").getFile());
+                backendConfig = getBackendConfig(backendConfigFile);
+                break;
+            default:
+                HelpFormatter formatter = new HelpFormatter();
+                formatter.printHelp("kdc-server", options);
+                System.exit(1);
         }
         KerberosServer kdcServer = new KerberosServer(kdcConfig, backendConfig, realm);
         if (commandLine.hasOption("debug")) {
