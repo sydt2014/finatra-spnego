@@ -138,7 +138,7 @@ public class KerberosServer extends KdcServer {
         File kdcConfigFile = new File(classLoader.getResource("kerberos/kdc/kdc.conf").getFile());
         KdcConfig kdcConfig = getKdcConfig(kdcConfigFile);
         BackendConfig backendConfig = null;
-        String typeBackend = commandLine.getOptionValue("host", "memory");
+        String typeBackend = commandLine.getOptionValue("backend", "memory");
         switch (typeBackend) {
             case "memory":
                 backendConfig = new BackendConfig();
