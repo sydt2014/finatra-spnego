@@ -46,7 +46,7 @@ mainClassName = 'com.glegoux.spnego.SpnegoServerMain'
 
 jacoco {
   toolVersion = '0.8.2'
-  reportsDir = file("$buildDir/customJacocoReportDir")
+  reportsDir = file("${buildDir}/customJacocoReportDir")
 }
 
 jacocoTestReport {
@@ -65,24 +65,24 @@ repositories {
 
 
 dependencies {
-  compile "org.scala-lang:scala-library:$scalaVersion.$scalaMicroVersion"
-  compile "com.twitter:finatra-http_$scalaVersion:$finatraVersion"
-  compile "ch.qos.logback:logback-classic:$logbackVersion"
-  compile "com.google.inject.extensions:guice-testlib:$guiceTestlibVersion"
+  compile "org.scala-lang:scala-library:${scalaVersion}.${scalaMicroVersion}"
+  compile "com.twitter:finatra-http_${scalaVersion}:${finatraVersion}"
+  compile "ch.qos.logback:logback-classic:${logbackVersion}"
+  compile "com.google.inject.extensions:guice-testlib:${guiceTestlibVersion}"
   compile "org.apache.kerby:kerby-kdc:${apacheKerbyVersion}"
   compile "org.apache.kerby:json-backend:${apacheKerbyVersion}"
   compile "commons-cli:commons-cli:${commonsCLiVersion}"
 
-  testCompile "junit:junit:$junitVersion"
-  testCompile "org.mockito:mockito-core:$mockitoCoreVersion"
-  testCompile "org.scalatest:scalatest_$scalaVersion:$scalaTestVersion"
-  testCompile "com.twitter:finatra-http_$scalaVersion:$finatraVersion:tests"
-  testCompile "com.twitter:finatra-jackson_$scalaVersion:$finatraVersion:tests"
-  testCompile "com.twitter:inject-server_$scalaVersion:$finatraVersion:tests"
-  testCompile "com.twitter:inject-app_$scalaVersion:$finatraVersion:tests"
-  testCompile "com.twitter:inject-core_$scalaVersion:$finatraVersion:tests"
-  testCompile "com.twitter:inject-modules_$scalaVersion:$finatraVersion:tests"
-  testCompile "com.google.inject.extensions:guice-testlib:$guiceTestlibVersion:tests"
+  testCompile "junit:junit:${junitVersion}"
+  testCompile "org.mockito:mockito-core:${mockitoCoreVersion}"
+  testCompile "org.scalatest:scalatest_${scalaVersion}:${scalaTestVersion}"
+  testCompile "com.twitter:finatra-http_${scalaVersion}:${finatraVersion}:tests"
+  testCompile "com.twitter:finatra-jackson_${scalaVersion}:${finatraVersion}:tests"
+  testCompile "com.twitter:inject-server_${scalaVersion}:${finatraVersion}:tests"
+  testCompile "com.twitter:inject-app_${scalaVersion}:$finatraVersion:tests"
+  testCompile "com.twitter:inject-core_${scalaVersion}:${finatraVersion}:tests"
+  testCompile "com.twitter:inject-modules_${scalaVersion}:${finatraVersion}:tests"
+  testCompile "com.google.inject.extensions:guice-testlib:${guiceTestlibVersion}:tests"
 }
 
 task npmInstall(type: Exec) {
