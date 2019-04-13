@@ -1,4 +1,0 @@
-# One principal per line without Kerberos realm
-
-client
-HTTP/localhost
