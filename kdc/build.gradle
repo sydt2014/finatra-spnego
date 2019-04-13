@@ -1,0 +1,67 @@
+group 'com.glegoux.kdc'
+version '1.0-SNAPSHOT'
+
+// java and scala librairies versions
+final junitVersion = '4.12'
+final apacheKerbyVersion = '1.1.1'
+final commonsCLiVersion = '1.4'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.4"
+    }
+}
+
+apply plugin: 'scala'
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+mainClassName = 'com.glegoux.kdc.KerberosServer'
+
+jacoco {
+    toolVersion = '0.8.2'
+    reportsDir = file("${buildDir}/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+
+dependencies {
+    compile "commons-cli:commons-cli:${commonsCLiVersion}"
+    compile "org.apache.kerby:kerby-kdc:${apacheKerbyVersion}"
+    compile "org.apache.kerby:json-backend:${apacheKerbyVersion}"
+
+    testCompile "junit:junit:${junitVersion}"
+}
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Title': project.name,
+                'Implementation-Version': project.version,
+                'Main-Class': mainClassName
+        )
+    }
+}
