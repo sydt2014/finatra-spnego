@@ -10,5 +10,5 @@ gradlew
 gradlew.bat
 
 # Angular
-example/spnego-finatra-app/src/main/webapp/node_modules
-example/spnego-finatra-app/src/main/webapp/dist
+example/finatra-spnego-app/src/main/webapp/node_modules
+example/finatra-spnego-app/src/main/webapp/dist
