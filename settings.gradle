@@ -1,2 +1,2 @@
-include 'spnego-finatra'
+include 'finatra-spnego'
 include 'kdc'
