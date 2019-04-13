@@ -7,7 +7,7 @@ only by authenticated users on Kerberos Single Sign-On (SSO). So, your API endpo
 protected.
 
 <p align="center">
-  <img alt="finatra_kerberos.png" src="./spnego-finatra.png" width=200/><br>
+  <img alt="spnego-finatra.png" src="finatra-spnego.png" width=200/><br>
   <i>Kerberos and Finatra</i>
 </p>
 
